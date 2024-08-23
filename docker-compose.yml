@@ -12,6 +12,8 @@ services:
       MYSQL_USER: root
       MYSQL_PASSWORD: testdb
       MYSQL_DATABASE: dockerBD
+    volumes:
+      - /mnt/c/Users/thabi/Documents/Projects/dockerPhp:/var/www/html  # Syncs your local PHP files with the container
 
   db:
     image: mysql:8.0
