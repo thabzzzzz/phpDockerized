@@ -8,18 +8,18 @@ services:
     depends_on:
       - db
     environment:
-      MYSQL_HOST: db
-      MYSQL_USER: root
-      MYSQL_PASSWORD: testdb
-      MYSQL_DATABASE: dockerBD
+      - MYSQL_HOST=db
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=testdb
+      - MYSQL_DATABASE=dockerBD
     volumes:
-      - /mnt/c/Users/thabi/Documents/Projects/dockerPhp:/var/www/html  # Syncs your local PHP files with the container
+      - "./:/var/www/html"  # Ensure this path is correct
 
   db:
     image: mysql:8.0
     environment:
-      MYSQL_ROOT_PASSWORD: testdb
-      MYSQL_DATABASE: dockerBD
+      - MYSQL_ROOT_PASSWORD=testdb
+      - MYSQL_DATABASE=dockerBD
     ports:
       - "3306:3306"
     volumes:
